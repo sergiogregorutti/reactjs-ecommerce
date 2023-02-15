@@ -1,0 +1,42 @@
+.nav-bar {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  padding: 10px 15px;
+  border-bottom: 2px solid;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 25px;
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 50px;
+      display: flex;
+      align-items: end;
+
+      li {
+        display: inline-block;
+        margin-right: 10px;
+
+        a {
+          color: #000;
+          text-decoration: none;
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+  }
+}
