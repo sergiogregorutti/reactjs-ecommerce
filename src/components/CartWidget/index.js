@@ -3,9 +3,9 @@ import './styles.scss';
 
 function CartWidget() {
   return (
-    <a href="#" class="cart-widget">
+    <a href="#" className="cart-widget">
       <BsFillCartFill className="icon" />
-      <span class="badge">3</span>
+      <span className="badge">3</span>
     </a>
   );
 }
