@@ -35,6 +35,36 @@ function App() {
     setShowText(!showText);
   };
 
+  const fetchProduct = () => {
+    return new Promise((resolve, reject) => {
+      const productData = document.querySelector("#product-data");
+      productData.textContent = 'Cargando datos...';
+
+      setTimeout(() => {
+        resolve({ name: "Notebook", price: 100.000 });
+      }, 3000);
+
+      /*setTimeout(() => {
+        reject('El producto no existe.');
+      }, 3000);*/
+
+      /*setTimeout(() => {
+        throw 'El servidor no responde.';
+      }, 3000);*/
+    });
+  };
+
+  const getProductData = () => {
+    fetchProduct().then((data) => {
+      const productData = document.querySelector("#product-data");
+      productData.textContent = `Nombre: ${data.name}. Precio: $${data.price}.`;
+    }, (data) => {
+      console.log(data);
+    }).catch(function(error) {
+      console.log(error);
+    });
+  };
+
   return (
     <div className="container">
       <NavBar />
@@ -46,6 +76,11 @@ function App() {
       <button onClick={toggleShowText}>Mostrar/Ocultar Texto</button>
 
       {showText && <Texto />}
+
+      <hr style={{margin: '20px 0'}} />
+
+      <button onClick={getProductData} style={{marginBottom: '15px'}}>Cargar datos de Producto</button>
+      <div id="product-data"></div>
     </div>
   );
 }
