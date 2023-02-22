@@ -65,6 +65,17 @@ function App() {
     });
   };
 
+  const products = [
+    {
+      name: 'Notebook',
+      price: 100.000
+    },
+    {
+      name: 'Monitor',
+      price: 20.000
+    }
+  ];
+
   return (
     <div className="container">
       <NavBar />
@@ -81,6 +92,13 @@ function App() {
 
       <button onClick={getProductData} style={{marginBottom: '15px'}}>Cargar datos de Producto</button>
       <div id="product-data"></div>
+
+      <h2>Productos</h2>
+      <ul>
+        {products.map(product => (
+          <li>Nombre: {product.name}. Precio: ${product.price}</li>
+        ))}
+      </ul>
     </div>
   );
 }
